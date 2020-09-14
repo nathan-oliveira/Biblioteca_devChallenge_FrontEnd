@@ -1,0 +1,45 @@
+.menu {
+  background: #252525;
+  padding: 15px 0;
+}
+
+.menu-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.125em;
+}
+
+.menu-logo {
+  margin: 0 10px;
+}
+
+.menu-nav {
+  flex: 1;
+  margin: 0 10px;
+  align-self: center;
+}
+
+.menu-nav ul {
+  float: right;
+  display: flex;
+  list-style: none;
+}
+
+.menu-nav ul li {
+  padding-left: 20px;
+}
+
+@media (max-width: 739px) {
+  .menu-nav {
+    margin: 0px;
+  }
+  
+  .menu-logo {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+  }
+
+  .menu-nav ul li a {
+    padding-left: 0px;
+  }
+}

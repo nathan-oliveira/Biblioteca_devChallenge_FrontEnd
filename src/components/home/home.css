@@ -1,0 +1,81 @@
+/* 
+.produtos {
+  padding: 30px 0;
+}
+
+.table-produtos {
+  padding: 0 10px;
+}
+
+.table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td, .table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #252525;
+  color: white;
+}
+*/
+
+.livros {
+  max-width: 960px;
+  margin: 60px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.livros h1 {
+  font-size: 3em;
+  margin: 0 10px 60px 10px;
+}
+
+.livros-item {
+  margin: 10px;
+  width: 300px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
+}
+
+.livros-item h2, .livros-item h3 {
+  font-size: 0.8em;
+  color: #5d5d5d;
+  background: #f7f7f7;
+  padding: 20px 20px;
+}
+
+.livros-item h3 {
+  font-size: 0.8em;
+  color: #5d5d5d;
+  background: #f7f7f7;
+  padding-top: 0px;
+}
+
+.livros-item img {
+  width: 100%;
+  margin-bottom: -5px;
+}
+
+@media (max-width: 976px) {
+  .livros {
+    justify-content: center;
+  }
+  .livros-item {
+    margin: 10px;
+    width: 280px;
+  }
+}
