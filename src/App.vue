@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <SuperInfo />
     <Header />
     <div>
       <router-view>
@@ -10,13 +11,14 @@
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
 import Header from './components/header/Header.vue'
+import SuperInfo from './components/superinfo/Superinfo.vue'
 
 export default {
   name: 'app',
   components: {
-    Header
+    Header,
+    SuperInfo
   }
 }
 </script>

@@ -1,16 +1,12 @@
 .menu {
-  background: #252525;
+  background: #2c70ff;
   padding: 15px 0;
 }
 
 .menu-nav a {
   text-decoration: none;
   color: #fff;
-  font-size: 1.125em;
-}
-
-.menu-logo {
-  margin: 0 10px;
+  font-size: 1.25em;
 }
 
 .menu-nav {
@@ -27,6 +23,18 @@
 
 .menu-nav ul li {
   padding-left: 20px;
+}
+
+.menu-logo a {
+  font-size: 2.25em;
+  font-weight: bold;
+  margin: 0 10px;
+}
+.menu a {
+  color: white;
+}
+a {
+  text-decoration: none;
 }
 
 @media (max-width: 739px) {

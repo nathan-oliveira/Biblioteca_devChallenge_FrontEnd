@@ -46,6 +46,7 @@
 .livros-item {
   margin: 10px;
   width: 300px;
+  background: #f7f7f7;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
   box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
@@ -54,20 +55,18 @@
 .livros-item h2, .livros-item h3 {
   font-size: 0.8em;
   color: #5d5d5d;
-  background: #f7f7f7;
   padding: 20px 20px;
 }
 
 .livros-item h3 {
-  font-size: 0.8em;
-  color: #5d5d5d;
-  background: #f7f7f7;
-  padding-top: 0px;
+  font-size: 0.7em;
+  margin-top: -30px !important;
 }
 
 .livros-item img {
   width: 100%;
   margin-bottom: -5px;
+  border-bottom: 1px solid #0101;
 }
 
 @media (max-width: 976px) {
