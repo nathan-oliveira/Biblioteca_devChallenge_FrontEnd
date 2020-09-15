@@ -1,18 +1,32 @@
-body, h1, h2, h3, p , ul {
-  padding: 0px;
+/* Reset */
+body, h1, h2, p, ul, li, a {
   margin: 0px;
+  padding: 0px;
 }
 
 body {
   font-family: 'Nunito', Helvetica, Arial, sans-serif;
-  color: #252525;
+  color: #222222;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.container {
+/* .container {
   display: flex;
   max-width: 960px;
   margin: 0 auto;
@@ -23,4 +37,4 @@ body {
     flex-direction: column;
     max-width: 300px;
   }
-}
+} */

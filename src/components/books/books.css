@@ -1,10 +1,10 @@
-.produtos {
+.books {
   padding: 30px 0;
   max-width: 960px;
   margin: 0 auto;
 }
 
-.table-produtos {
+.table-books {
   padding: 0 10px;
 }
 
@@ -27,6 +27,16 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #252525;
+  background-color: #002672;
   color: white;
+}
+
+.table-col2 {
+  width: 20%;
+}
+
+@media (max-width: 515px) {
+  .table-col2, .table-col3 {
+    display: none;
+  }
 }

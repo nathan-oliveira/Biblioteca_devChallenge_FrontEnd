@@ -1,35 +1,27 @@
 <template>
-  <section class="produtos">
-    <div class="table-produtos">
+  <section class="books">
+    <div class="table-books">
       <table class="table">
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Berglunds snabbköp</td>
-          <td>Christina Berglund</td>
-          <td>Sweden</td>
-        </tr>
+        <thead>
+          <th class="table-col1">Titulo</th>
+          <th class="table-col2">Editora</th>
+          <th class="table-col3">Autor</th>
+          <th class="table-acoes">Ações</th>
+        </thead>
+        <tbody>
+          <tr v-for="book of ListagemBooks" :key="book.id">
+            <td class="table-col1">{{book.titulo}}</td>
+            <td class="table-col2">{{book.editora}}</td>
+            <td class="table-col3">{{ book.autores.reduce((author, next) => `${author}, ${next}`) }}</td>
+            <td class="table-acoes">Editar - Alterar</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  name: 'Books',
-  props: {
-
-  }
-}
-</script>
+<script src="./script"></script>
 
 <style scoped>
   @import './books.css'

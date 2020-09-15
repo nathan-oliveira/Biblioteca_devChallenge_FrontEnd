@@ -1,10 +1,10 @@
 <template>
   <div class="superinfo-bg">
-    <!-- <div class="superinfo">
+    <div class="superinfo">
       <p>Seg / Sex - 08:00 às 18:00</p>
       <a href="tel:+551499999999"></a>
       <p>Marília - SP</p>
-    </div> -->
+    </div>
   </div>
 </template>
 
