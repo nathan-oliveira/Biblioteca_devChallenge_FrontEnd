@@ -5,18 +5,34 @@
 }
 
 .table-books {
-  padding: 0 10px;
+  padding: 10px 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 0 10px;
+  /* -webkit-box-shadow: 0px 0px 2px 0.5px rgba(0,0,0,0.47);
+    -moz-box-shadow: 0px 0px 2px 0.5px rgba(0,0,0,0.47);
+      box-shadow: 0px 0px 2px 0.5px rgba(0,0,0,0.47); */
+
+  
 }
 
 .table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  overflow:hidden;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(128,128,128,0.57);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(128,128,128,0.57);
+      box-shadow: 0px 0px 5px 1px rgba(128,128,128,0.57);
 }
 
 .table td, .table th {
-  border: 1px solid #ddd;
   padding: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .table tr:nth-child(even){background-color: #f2f2f2;}
@@ -24,8 +40,8 @@
 .table tr:hover {background-color: #ddd;}
 
 .table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: left;
   background-color: #002672;
   color: white;
@@ -35,8 +51,65 @@
   width: 20%;
 }
 
+.table-acoes {
+  text-align: center;
+  width: 80px;
+}
+
+.bx {
+  font-size: 25px;
+}
+
+.bx-trash {
+  color: #c50000e6;
+}
+
+.bx-edit {
+  color: #101010;
+}
+
+.btn {
+  display: flex;
+  padding: 10px 30px;
+  background: #007bff;
+  color: white;
+  font-size: 1.25em;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(128,128,128,0.57);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(128,128,128,0.57);
+      box-shadow: 0px 0px 5px 0px rgba(128,128,128,0.57);
+}
+
+.btn i {
+  margin-right: 6px;
+  font-size: 1.2em;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.display {
+  display: none;
+}
+
 @media (max-width: 515px) {
   .table-col2, .table-col3 {
+    display: none;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 625px) {
+  .table-col2 {
     display: none;
   }
 }

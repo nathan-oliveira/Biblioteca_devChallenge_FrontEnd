@@ -1,5 +1,8 @@
 .menu-bg {
   background: #2c70ff;
+  -moz-box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.4);
 }
 
 .menu {

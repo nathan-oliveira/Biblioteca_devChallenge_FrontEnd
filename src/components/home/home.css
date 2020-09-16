@@ -1,36 +1,3 @@
-/* 
-.produtos {
-  padding: 30px 0;
-}
-
-.table-produtos {
-  padding: 0 10px;
-}
-
-.table {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table td, .table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.table tr:nth-child(even){background-color: #f2f2f2;}
-
-.table tr:hover {background-color: #ddd;}
-
-.table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #252525;
-  color: white;
-}
-*/
-
 .livros {
   max-width: 960px;
   margin: 60px auto;
@@ -45,7 +12,8 @@
 
 .livros-item {
   margin: 10px;
-  width: 300px;
+  width: 220px;/* 300px; */
+  height: 475px;
   background: #f7f7f7;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.4);
@@ -63,11 +31,37 @@
   margin-top: -30px !important;
 }
 
+.livros-item h4 {
+  font-size: 0.7em;
+  color: #5d5d5d;
+  padding: 0px 20px;
+  margin-top: -30px !important;
+}
+
 .livros-item img {
   width: 100%;
+  height: 41vh;
   margin-bottom: -5px;
   border-bottom: 1px solid #0101;
 }
+
+.buttonCart {
+  display: flex !important;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+.buttonCart button {
+  width: 100%;
+  border-radius: 3px;
+  background: #543e31;
+  justify-content: center;
+}
+
+.livros-item button:hover {
+  background: #2b211b;
+}
+ 
 
 @media (max-width: 976px) {
   .livros {
