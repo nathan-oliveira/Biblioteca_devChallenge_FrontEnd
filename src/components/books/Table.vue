@@ -51,10 +51,14 @@ export default {
         })
     },
     cadastrarView() {
-      let element = document.getElementsByClassName('table-books');
-      for(var i = 0; i < element.length; i++)
-      {
-        element[i].classList.add('display');
+      let element1 = document.getElementsByClassName('table-books');
+      let element2 = document.getElementsByClassName('cadastrar_book');
+      for(let x = 0; x < element1.length; x++) {
+        element1[x].classList.add('display');
+      }
+
+      for(var y = 0; y < element2.length; y++) {
+        element2[y].classList.remove('display');
       }
     }
   }
@@ -62,5 +66,5 @@ export default {
 </script>
 
 <style scoped>
-  @import './books.css';
+  @import './table.css';
 </style>
