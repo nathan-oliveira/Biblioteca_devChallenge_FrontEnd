@@ -1,4 +1,4 @@
-import Books from "../../services/home"
+import Books from "../../services/books"
 export default {
   name: 'Home',
   props: {

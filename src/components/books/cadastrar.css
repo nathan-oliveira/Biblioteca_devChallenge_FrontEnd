@@ -148,6 +148,7 @@
   background-color: transparent !important;
   padding: 0 !important;
   height: 0px;
+  outline:none;
 }
 
 .chip:hover {
@@ -179,10 +180,18 @@
 
 .chip ul li a {
   color: #5d5d5d;
+  cursor: pointer;
 }
 
 .close {
   font-size: 20px;
+  margin-right: -6px;
+}
+
+.chips {
+  margin: 0 10px;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 625px) {
@@ -197,5 +206,3 @@
     padding: 10px 10px !important;
   }
 }
-
-/* @media (max-width: 515px) */

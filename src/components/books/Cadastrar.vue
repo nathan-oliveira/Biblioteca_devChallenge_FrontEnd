@@ -1,32 +1,53 @@
 <template>
   <section class="cadastrar_book display">
-    <form action="" class="form" id="form">
+    <form @submit.prevent="salvar" class="form" id="form">
       <div class="form_title">
         <label>Cadastrar Livro</label>
       </div>
       <div class="form-row">
         <div class="form_div col-12">
-          <input type="text" class="form_input" placeholder=" ">
+          <input 
+            type="text" 
+            class="form_input" 
+            v-model="books.titulo" 
+            placeholder=" ">
           <label class="form_label">Titulo</label>
         </div>
 
         <div class="form_div col-6">
-          <input type="text" class="form_input" placeholder=" ">
+          <input 
+            type="text"
+            class="form_input"
+            v-model="books.editora"
+            placeholder=" ">
           <label class="form_label">Editora</label>
         </div>
 
         <div class="form_div col-6">
-          <input type="text" class="form_input" placeholder=" ">
+          <input 
+            type="text"
+            class="form_input"
+            v-model="books.foto"
+            placeholder=" ">
           <label class="form_label">Foto (URL)</label>
         </div>
-
-        <div class="form_div col-12 chips">
-          <div class="chip" tabindex="0">
-            <ul id="list"></ul>
-          </div>
+        
+        <div class="form_div col-12">
           <input type="text" id="autor" class="form_input" placeholder=" ">
           <label class="form_label">Autor(a)</label>
         </div>
+
+        <div class="chips">
+          <div class="chip" tabindex="0">
+            <ul id="list">
+              <li v-for="book of books.autores" :key="book.id" >
+                <span>{{book}}</span>
+                <a @click="deleteAutor(book)"><i class='bx bx-x close'></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
       <div class="form-row form_buttons">
         <a @click="tableView" class="btn form_button2"><i class='bx bx-arrow-back'></i> Voltar</a>
@@ -37,10 +58,17 @@
 </template>
 
 <script>
+import Books from "../../services/books"
+
 export default {
   name: 'Cadastrar',
   components: {
     
+  },
+  props: {
+    methodListagem: { 
+      type: Function 
+    }
   },
   data() {
     return {
@@ -55,7 +83,6 @@ export default {
   },
   mounted() {
     let txt = document.getElementById("autor");
-    let list = document.getElementById("list");
 
     document.getElementById("form").addEventListener('keypress', function(e) {
       var keyCode = e.keyCode || e.which;
@@ -74,7 +101,6 @@ export default {
           } else {
             if(this.books.autores.length < 5) {
               this.books.autores.push(val);
-              render();
               txt.value = "";
               txt.focus();
             } else {
@@ -87,25 +113,11 @@ export default {
         }
       }
     });
-
-    const render = () =>{
-      list.innerHTML = "";
-      this.books.autores.map((item, index) => {
-        list.innerHTML += `<li>
-          <span>${item}</span>
-          <a href="javascript: apagar(${index})"><i class='bx bx-x close'></i></a>
-        </li>`;
-      });
-    }
-
-    // const apagar = (i) => {
-    //   this.books.autores = this.books.autores.filter((item) => this.books.autores.indexOf(item) != i);
-    //   render();
-    // }
-
-    render();
   },
   methods: {
+    deleteAutor(i) {
+      this.books.autores = this.books.autores.filter((item) => item !== i)
+    },
     tableView() {
       let element1 = document.getElementsByClassName('table-books');
       let element2 = document.getElementsByClassName('cadastrar_book');
@@ -117,6 +129,26 @@ export default {
       for(var y = 0; y < element2.length; y++) {
         element2[y].classList.add('display');
       }
+    },
+    salvar() {
+      Books.salvar(this.books)
+        .then(resp => {
+          console.log('RESP: ', resp)
+          this.clear()
+          this.methodListagem()
+          this.tableView()
+        })
+    },
+    clear() {
+      let list = document.getElementById("list");
+      // let erros = document.getElementById("erros");
+      let autor = document.getElementById("autor");
+
+      list.innerHTML = "";
+      // erros.innerHTML = "";
+      autor.value = "";
+
+      this.books = { titulo: null, editora: null, foto: null, autores: [] }
     }
   }
 }
