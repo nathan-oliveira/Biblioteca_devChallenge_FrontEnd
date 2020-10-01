@@ -1,6 +1,6 @@
 .livros {
   max-width: 960px;
-  margin: 60px auto;
+  margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -66,6 +66,10 @@
 
 
 @media (max-width: 976px) {
+  .livros-item img {
+    height: 50vh;
+  }
+
   .livros {
     justify-content: center;
   }

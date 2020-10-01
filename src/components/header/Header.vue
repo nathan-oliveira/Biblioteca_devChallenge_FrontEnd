@@ -1,5 +1,5 @@
 <template>
-  <header class="menu-bg">
+  <header class="menu-bg" id="header">
     <div class="menu">
       <div class="menu-logo">
         <router-link to="/">Biblioteca Virtual</router-link>
@@ -13,7 +13,6 @@
           <li>
             <router-link to="/">Carrinho</router-link>
           </li>
-          
         </ul>
       </nav>
     </div>
@@ -22,13 +21,23 @@
 
 <script>
 export default {
-  name: 'Header',
-  props: {
+  name: "Header",
+  props: {},
+  mounted() {
+    let menuHeader = document.getElementById("header");
 
-  }
-}
+    window.onscroll = function () {
+      var top = window.pageYOffset || document.documentElement.scrollTop;
+      if (top > 120) {
+        menuHeader.classList.add("fixed");
+      } else {
+        menuHeader.classList.remove("fixed");
+      }
+    };
+  },
+};
 </script>
 
 <style scoped>
-  @import './header.css';
+@import "./header.css";
 </style>
