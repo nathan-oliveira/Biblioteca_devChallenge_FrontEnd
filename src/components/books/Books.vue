@@ -18,7 +18,11 @@
               <td class="table-col2">{{ book.editora }}</td>
               <td class="table-col3">
                 {{
-                  book.autores.reduce((author, next) => `${author}, ${next}`)
+                  book.autores.length > 0
+                    ? book.autores.reduce(
+                        (author, next) => `${author}, ${next}`
+                      )
+                    : ""
                 }}
               </td>
               <td class="table-acoes">
@@ -185,6 +189,7 @@ export default {
       let cadastrar = document.getElementById("cadastrar");
 
       if (action == "tableView") {
+        this.listagem();
         books.classList.remove("display");
         cadastrar.classList.add("display");
       } else {
