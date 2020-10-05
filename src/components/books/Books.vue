@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section class="books" id="books">
+    <section v-if="visibled" class="books" id="books">
       <div class="table-books">
-        <button @click="cadastrarView" class="btn">
+        <button @click="visibled = false" class="btn">
           <i class="bx bxs-book-add bx-tada"></i> Adicionar
         </button>
         <table class="table">
@@ -39,7 +39,7 @@
       </div>
     </section>
 
-    <section class="cadastrar_book display" id="cadastrar">
+    <section class="cadastrar_book" v-if="!visibled" id="cadastrar">
       <form @submit.prevent="salvar" class="form" id="form">
         <div class="form_title">
           <label>Cadastrar Livro</label>
@@ -80,7 +80,7 @@
               type="text"
               id="autor"
               class="form_input"
-              v-on:keyup="adicionarAutor"
+              v-on:keydown.enter.prevent="adicionarAutor"
               placeholder=" "
             />
             <label class="form_label">Autor(a)</label>
@@ -100,7 +100,7 @@
           </div>
         </div>
         <div class="form-row form_buttons">
-          <a @click="spa('tableView')" class="btn form_button2">
+          <a @click="spa(true)" class="btn form_button2">
             <i class="bx bx-arrow-back"></i> Voltar
           </a>
           <button type="submit" class="btn form_button1">
@@ -127,18 +127,11 @@ export default {
         autores: [],
       },
       ListagemBooks: [],
+      visibled: true,
     };
   },
   mounted() {
     this.listagem();
-
-    document.getElementById("form").addEventListener("keypress", function (e) {
-      var keyCode = e.keyCode || e.which;
-      if (keyCode === 13) {
-        e.preventDefault();
-        return false;
-      }
-    });
   },
   methods: {
     listagem() {
@@ -146,28 +139,15 @@ export default {
         this.ListagemBooks = resp.data.dados;
       });
     },
-    cadastrarView() {
-      this.clear();
-      this.spa("formView");
-    },
-    editar(book) {
-      this.spa("formView");
-      this.books = book;
-    },
-
-    // Autor
     adicionarAutor(e) {
       if (e.keyCode === 13) {
-        let autor = document.getElementById("autor");
-        let val = autor.value;
-        if (val !== "") {
-          if (this.books.autores.indexOf(val) >= 0) {
+        if (e.target.value !== "") {
+          if (this.books.autores.indexOf(e.target.value) >= 0) {
             alert("Autor duplicado!");
           } else {
             if (this.books.autores.length < 5) {
-              this.books.autores.push(val);
-              autor.value = "";
-              autor.focus();
+              this.books.autores.push(e.target.value);
+              e.target.value = "";
             } else {
               alert("É permitido no máximo cinco autores");
             }
@@ -180,49 +160,36 @@ export default {
     deleteAutor(i) {
       this.books.autores = this.books.autores.filter((item) => item !== i);
     },
-
-    // SPA
+    editar(book) {
+      this.spa(false);
+      this.books = book;
+    },
     spa(action) {
       this.clear();
-
-      let books = document.getElementById("books");
-      let cadastrar = document.getElementById("cadastrar");
-
-      if (action == "tableView") {
-        this.listagem();
-        books.classList.remove("display");
-        cadastrar.classList.add("display");
-      } else {
-        books.classList.add("display");
-        cadastrar.classList.remove("display");
-      }
+      this.visibled = action;
     },
-
-    // Request
     salvar() {
       if (this.books.autores.length === 0) {
         alert("Autor não pode ser vazio!");
       } else {
         Books.salvar(this.books).then((resp) => {
-          if (resp.data.error === false) {
+          if (!resp.data.error) {
             this.listagem();
-            this.spa("tableView");
+            this.spa(true);
           }
         });
       }
     },
-
     deletar(book) {
       if (confirm("Deseja excluir o livro?")) {
         Books.deletar(book).then((resp) => {
-          if (resp.data.error === false) {
+          if (!resp.data.error) {
             this.clear();
             this.listagem();
           }
         });
       }
     },
-    // Clear Books
     clear() {
       this.books = { titulo: null, editora: null, foto: null, autores: [] };
     },
